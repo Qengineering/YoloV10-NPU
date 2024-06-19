@@ -26,6 +26,6 @@ include_directories(include ${OpenCV_INCLUDE_DIRS})
 
 add_link_options(-fopenmp -s -ldl -lpthread -pthread -lgomp -rdynamic -march=armv8.2-a)
 
-add_executable(YoloV8_NPU ${SOURCES})
+add_executable(YoloV10_NPU ${SOURCES})
 
-target_link_libraries(YoloV8_NPU ${EXTRA_LIBS})
+target_link_libraries(YoloV10_NPU ${EXTRA_LIBS})
