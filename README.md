@@ -1,16 +1,13 @@
-# YoloV8 NPU
-![output image]( https://qengineering.eu/github/YoloV8_ParkingNPU.webp )
-## YoloV8 for RK3566/68/88 NPU (Rock 5, Orange Pi 5, Radxa Zero 3). <br/>
+# YoloV10 NPU
+![output image]( https://qengineering.eu/github/YoloV10s_parking.jpg )
+## YoloV10 for RK3566/68/88 NPU (Rock 5, Orange Pi 5, Radxa Zero 3). <br/>
 [![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)<br/><br/>
 Special made for the NPU, see [Q-engineering deep learning examples](https://qengineering.eu/deep-learning-examples-on-raspberry-32-64-os.html)
 
 ------------
 
-## Model performance benchmark(FPS)
+## Model performance benchmark (FPS)
 
-All models, with C++ examples can be found on the SD images.<br><br>
-![output image]( https://qengineering.eu/github/RockPi5_Ubuntu_22.jpg ) [Rock 5 with **Ubuntu 22.04**, OpenCV, ncnn and **NPU**](https://github.com/Qengineering/Rock-5-Ubuntu-22-image)<br><br>
-![output image]( https://qengineering.eu/github/RadxaZero3_Ubuntu_22.jpg ) [Radxa Zero 3 with **Ubuntu 22.04**, OpenCV, ncnn and **NPU**](https://github.com/Qengineering/Radxa-Zero-3-NPU-Ubuntu22)<br><br>
 All models are quantized to **int8**, unless otherwise noted.<br>
 
 
@@ -52,6 +49,14 @@ All models are quantized to **int8**, unless otherwise noted.<br>
 <sup>2</sup> Input size 480x480<br>
 <sup>3</sup> Input size 48x320, FP16<br>
 * Due to the pixel-wise filling and drawing, segmentation models are relatively slow
+
+------------
+
+## Opset.
+YoloV10 use layer operations yet unknown to Rock NPU toolset.<br>
+To let YoloV10 run on an NPU framework, [kaylorchen](https://github.com/kaylorchen) has modified the onnx file by replacing these layers. 
+At the same time, he expanded the original output to three.
+Until the NPU framework fully supports onnx opset 13, we face these limitations.
 
 ------------
 
@@ -110,7 +115,7 @@ To extract and run the network in Code::Blocks <br/>
 ```
 $ mkdir *MyDir* <br/>
 $ cd *MyDir* <br/>
-$ git clone https://github.com/Qengineering/YoloV8-NPU.git <br/>
+$ git clone https://github.com/Qengineering/YoloV10-NPU.git <br/>
 ```
 
 ------------
@@ -133,7 +138,12 @@ $ make -j4
 Make sure you use the model fitting your system.<br><br>
 
 More info or if you want to connect a camera to the app, follow the instructions at [Hands-On](https://qengineering.eu/deep-learning-examples-on-raspberry-32-64-os.html#HandsOn).<br/><br/>
-![output image]( https://qengineering.eu/github/YoloV8_Bus_NPU.webp )
+
+------------
+
+### Thanks.
+A more than special thanks to [***kaylorchen***](https://github.com/kaylorchen), who adapted the onnx model to the NPU framework.<br><br>
+![output image]( https://qengineering.eu/github/YoloV10s_bus.jpg )
 
 ------------
 
